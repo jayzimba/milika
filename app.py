@@ -18,13 +18,12 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-# Updated feature columns to match CSV structure
+# Feature columns matching the CSV structure
 FEATURE_COLUMNS = [
     'age', 'fever', 'cough', 'fatigue', 'headache', 'breathing_difficulty',
     'chest_pain', 'muscle_stiffness', 'pain', 'seizures', 'fatigue.1',
     'b_difficulty'
 ]
-
 
 class ModelTrainer:
     def __init__(self, data_path: str):
@@ -102,7 +101,6 @@ class ModelTrainer:
             logger.error(f"Error saving models: {str(e)}")
             raise
 
-
 class PredictionService:
     def __init__(self):
         self.diagnosis_model = joblib.load('models/diagnosis_model.pkl')
@@ -171,7 +169,6 @@ def health_check():
     """Health check endpoint."""
     return jsonify({'status': 'healthy'})
 
-
 @app.route('/predict', methods=['POST'])
 def predict():
     """Prediction endpoint."""
@@ -192,7 +189,6 @@ def predict():
         logger.error(f"Prediction endpoint error: {str(e)}")
         return jsonify({'error': 'Internal server error'}), 500
 
-
 def initialize_app():
     """Initialize the application and train models."""
     try:
@@ -203,7 +199,6 @@ def initialize_app():
         logger.error(f"Initialization error: {str(e)}")
         raise
 
-
 if __name__ == '__main__':
     initialize_app()
-    app.run(debug=False, host='0.0.0.0')
+    app.run(debug=False)
