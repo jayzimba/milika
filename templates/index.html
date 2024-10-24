@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Diagnosis API Tester</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: inline-block;
+            width: 200px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medical Diagnosis API Tester</h1>
+
+    <h2>Health Check</h2>
+    <button onclick="checkHealth()">Check Health</button>
+
+    <h2>Prediction Form</h2>
+    <form id="predictionForm">
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" value="25">
+        </div>
+        <div class="form-group">
+            <label for="fever">Fever (0/1):</label>
+            <input type="number" id="fever" min="0" max="1" value="1">
+        </div>
+        <div class="form-group">
+            <label for="cough">Cough (0/1):</label>
+            <input type="number" id="cough" min="0" max="1" value="0">
+        </div>
+        <div class="form-group">
+            <label for="fatigue">Fatigue (0/1):</label>
+            <input type="number" id="fatigue" min="0" max="1" value="1">
+        </div>
+        <div class="form-group">
+            <label for="headache">Headache (0/1):</label>
+            <input type="number" id="headache" min="0" max="1" value="1">
+        </div>
+        <div class="form-group">
+            <label for="breathing_difficulty">Breathing Difficulty (0/1):</label>
+            <input type="number" id="breathing_difficulty" min="0" max="1" value="0">
+        </div>
+        <div class="form-group">
+            <label for="chest_pain">Chest Pain (0/1):</label>
+            <input type="number" id="chest_pain" min="0" max="1" value="0">
+        </div>
+        <div class="form-group">
+            <label for="muscle_stiffness">Muscle Stiffness (0/1):</label>
+            <input type="number" id="muscle_stiffness" min="0" max="1" value="1">
+        </div>
+        <div class="form-group">
+            <label for="pain">Pain (0-2):</label>
+            <input type="number" id="pain" min="0" max="2" value="1">
+        </div>
+        <div class="form-group">
+            <label for="seizures">Seizures (0-2):</label>
+            <input type="number" id="seizures" min="0" max="2" value="0">
+        </div>
+        <div class="form-group">
+            <label for="fatigue_cp">Fatigue CP (0-2):</label>
+            <input type="number" id="fatigue_cp" min="0" max="2" value="1">
+        </div>
+        <div class="form-group">
+            <label for="breathing_difficulty_cp">Breathing Difficulty CP (0-2):</label>
+            <input type="number" id="breathing_difficulty_cp" min="0" max="2" value="0">
+        </div>
+        <button type="button" onclick="predict()">Predict</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        const API_BASE_URL = 'http://127.0.0.1:5000';
+
+        async function checkHealth() {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/health`);
+                document.getElementById('result').innerHTML = `
+                    <h3>Health Check Response:</h3>
+                    <pre>${JSON.stringify(response.data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `
+                    <h3>Error:</h3>
+                    <pre>${JSON.stringify(error.response?.data || error.message, null, 2)}</pre>
+                `;
+            }
+        }
+
+        async function predict() {
+            const data = {
+                age: parseFloat(document.getElementById('age').value),
+                fever: parseFloat(document.getElementById('fever').value),
+                cough: parseFloat(document.getElementById('cough').value),
+                fatigue: parseFloat(document.getElementById('fatigue').value),
+                headache: parseFloat(document.getElementById('headache').value),
+                breathing_difficulty: parseFloat(document.getElementById('breathing_difficulty').value),
+                chest_pain: parseFloat(document.getElementById('chest_pain').value),
+                muscle_stiffness: parseFloat(document.getElementById('muscle_stiffness').value),
+                pain: parseFloat(document.getElementById('pain').value),
+                seizures: parseFloat(document.getElementById('seizures').value),
+                fatigue_cp: parseFloat(document.getElementById('fatigue_cp').value),
+                breathing_difficulty_cp: parseFloat(document.getElementById('breathing_difficulty_cp').value)
+            };
+
+            try {
+                const response = await axios.post(`${API_BASE_URL}/predict`, data);
+                document.getElementById('result').innerHTML = `
+                    <h3>Prediction Response:</h3>
+                    <pre>${JSON.stringify(response.data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `
+                    <h3>Error:</h3>
+                    <pre>${JSON.stringify(error.response?.data || error.message, null, 2)}</pre>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

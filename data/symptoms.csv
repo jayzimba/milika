@@ -1,0 +1,11 @@
+muscle_stiffness,pain,seizures,fatigue,breathing_difficulty,severity
+0,0,0,0,0,green
+1,1,0,1,0,yellow
+2,2,1,2,0,red
+0,0,0,1,0,green
+1,2,1,2,1,red
+2,1,0,0,0,yellow
+0,1,1,1,0,yellow
+2,2,2,2,1,red
+0,0,0,0,0,green
+1,0,1,0,0,yellow
