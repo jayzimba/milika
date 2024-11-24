@@ -1,0 +1,151 @@
+age,fever,cough,fatigue,headache,breathing_difficulty,chest_pain,diagnosis,muscle_stiffness,pain,seizures,fatigue.1,b_difficulty,severity
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
+5,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+7,0,1,1,0,0,0,Common Cold,1,1,0,1,0,yellow
+12,1,0,1,1,0,0,Flu,2,2,1,2,0,red
+4,0,0,0,1,1,1,Asthma,0,0,0,1,0,green
+9,1,1,0,0,0,0,Common Cold,1,2,1,2,1,red
+11,1,1,1,0,0,0,Flu,2,1,0,0,0,yellow
+6,1,0,0,1,1,1,Asthma,0,1,1,1,0,yellow
+13,0,1,1,1,0,0,Flu,2,2,2,2,1,red
+8,1,0,0,0,1,1,Asthma,0,0,0,0,0,green
+10,1,1,1,1,0,0,Common Cold,1,0,1,0,0,yellow
