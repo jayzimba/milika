@@ -1,13 +1,13 @@
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import pandas as pd
 import joblib
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
-from typing import Tuple, List, Dict
-import logging
 import os
+import logging
 
 # Configure logging
 logging.basicConfig(
@@ -17,6 +17,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+CORS(app)
 
 # Feature columns matching the CSV structure
 FEATURE_COLUMNS = [
@@ -33,16 +34,13 @@ class ModelTrainer:
         self.diagnosis_model = None
         self.severity_model = None
 
-        # Create models directory if it doesn't exist
         os.makedirs('models', exist_ok=True)
 
-    def load_and_preprocess_data(self) -> Tuple[pd.DataFrame, np.ndarray, np.ndarray]:
-        """Load and preprocess the dataset."""
+    def load_and_preprocess_data(self):
         try:
             df = pd.read_csv(self.data_path)
             logger.info(f"Loaded data with columns: {df.columns.tolist()}")
 
-            # Encode target labels
             df['diagnosis_encoded'] = self.le_diagnosis.fit_transform(df['diagnosis'])
             df['severity_encoded'] = self.le_severity.fit_transform(df['severity'])
 
@@ -51,17 +49,13 @@ class ModelTrainer:
             y_severity = df['severity_encoded']
 
             return X, y_diagnosis, y_severity
-
         except Exception as e:
             logger.error(f"Error loading data: {str(e)}")
             raise
 
-    def train_models(self) -> None:
-        """Train the diagnosis and severity models."""
+    def train_models(self):
         try:
             X, y_diagnosis, y_severity = self.load_and_preprocess_data()
-
-            # Split the data
             X_train, _, y_train_diagnosis, _ = train_test_split(
                 X, y_diagnosis, test_size=0.2, random_state=42
             )
@@ -69,28 +63,18 @@ class ModelTrainer:
                 X, y_severity, test_size=0.2, random_state=42
             )
 
-            # Train models
-            self.diagnosis_model = RandomForestClassifier(
-                n_estimators=100,
-                random_state=42
-            )
-            self.severity_model = RandomForestClassifier(
-                n_estimators=100,
-                random_state=42
-            )
+            self.diagnosis_model = RandomForestClassifier(n_estimators=100, random_state=42)
+            self.severity_model = RandomForestClassifier(n_estimators=100, random_state=42)
 
             self.diagnosis_model.fit(X_train, y_train_diagnosis)
             self.severity_model.fit(X_train, y_train_severity)
 
-            # Save models and encoders
             self.save_models()
-
         except Exception as e:
             logger.error(f"Error training models: {str(e)}")
             raise
 
-    def save_models(self) -> None:
-        """Save trained models and encoders."""
+    def save_models(self):
         try:
             joblib.dump(self.diagnosis_model, 'models/diagnosis_model.pkl')
             joblib.dump(self.severity_model, 'models/severity_model.pkl')
@@ -108,10 +92,8 @@ class PredictionService:
         self.le_diagnosis = joblib.load('models/diagnosis_encoder.pkl')
         self.le_severity = joblib.load('models/severity_encoder.pkl')
 
-    def validate_input(self, data: Dict) -> List[float]:
-        """Validate and prepare input data for prediction."""
+    def validate_input(self, data):
         try:
-            # Create a mapping from API input names to actual feature names
             feature_mapping = {
                 'age': 'age',
                 'fever': 'fever',
@@ -127,19 +109,12 @@ class PredictionService:
                 'breathing_difficulty_cp': 'b_difficulty'
             }
 
-            # Map the input data to the correct feature names
-            features = []
-            for api_name, feature_name in feature_mapping.items():
-                value = float(data.get(api_name, 0))
-                features.append(value)
-
+            features = [float(data.get(api_name, 0)) for api_name in feature_mapping.keys()]
             return features
-
         except ValueError as e:
             raise ValueError(f"Invalid input data: {str(e)}")
 
-    def predict(self, features: List[float]) -> Dict[str, str]:
-        """Make predictions using the trained models."""
+    def predict(self, features):
         try:
             diagnosis_pred = self.diagnosis_model.predict([features])[0]
             severity_pred = self.severity_model.predict([features])[0]
@@ -158,20 +133,14 @@ class PredictionService:
         except Exception as e:
             logger.error(f"Prediction error: {str(e)}")
             raise
-
 @app.route('/', methods=['GET'])
 def home():
     """Render the index.html template."""
     return render_template('index.html')
 
-@app.route('/health', methods=['GET'])
-def health_check():
-    """Health check endpoint."""
-    return jsonify({'status': 'healthy'})
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    """Prediction endpoint."""
     try:
         data = request.get_json()
         if not data:
@@ -182,15 +151,17 @@ def predict():
         prediction = prediction_service.predict(features)
 
         return jsonify(prediction)
-
     except ValueError as e:
         return jsonify({'error': str(e)}), 400
     except Exception as e:
         logger.error(f"Prediction endpoint error: {str(e)}")
         return jsonify({'error': 'Internal server error'}), 500
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'healthy'})
+
 def initialize_app():
-    """Initialize the application and train models."""
     try:
         trainer = ModelTrainer('data/combined_symptoms_150.csv')
         trainer.train_models()
@@ -201,4 +172,4 @@ def initialize_app():
 
 if __name__ == '__main__':
     initialize_app()
-    app.run(debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=False)
